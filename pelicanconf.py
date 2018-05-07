@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import sys
+sys.path.append('.')
+from utils import filters
+JINJA_FILTERS = { 'sidebar': filters.sidebar }
 
 AUTHOR = 'Brandon Lewis'
 SITENAME = "Brandon's Data Science Blog"
@@ -27,7 +31,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+          ('Not another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
 
@@ -38,4 +42,4 @@ MARKUP = ('md', 'ipynb', 'ipynb-meta')
 PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['ipynb.markup']
 IGNORE_FILES = ['.ipynb_checkpoints']
-THEME = '/Users/brandonlewis/Desktop/pelican-themes'
+THEME = '/Users/brandonlewis/Desktop/pelican-themes/twenty-html5up'
