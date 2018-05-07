@@ -38,3 +38,4 @@ MARKUP = ('md', 'ipynb', 'ipynb-meta')
 PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['ipynb.markup']
 IGNORE_FILES = ['.ipynb_checkpoints']
+THEME = '/Users/brandonlewis/Desktop/pelican-themes'
