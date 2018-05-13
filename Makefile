@@ -2,6 +2,7 @@ PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
 
+
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
