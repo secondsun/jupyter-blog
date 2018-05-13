@@ -1,0 +1,7 @@
+Title: First Post
+Slug: first-post
+Date: 2018-04-25 23:13
+Category: posts
+Tags: python firsts
+Author: Brandon Lewis
+Summary: My first post read it to find out
