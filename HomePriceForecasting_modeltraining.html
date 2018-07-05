@@ -1,0 +1,2399 @@
+
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+			<title>Brandon's Data Science Portfolio Blog</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			<link href="https://cyranothebard.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Brandon's Data Science Portfolio Blog Full Atom Feed" />
+			<link href="https://cyranothebard.github.io/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="Brandon's Data Science Portfolio Blog Categories Atom Feed" />
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+									<h1><a href="https://cyranothebard.github.io/">Brandon's Data Science Portfolio Blog</a></h1>
+									
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+											</ul>
+										</nav>
+
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+<div class="row">
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/posts.html">Posts</a></li>
+												<li><a class="button button-alt" href="tag/machine-learning.html">Machine learning</a></li>
+
+												<li><a class="button button-alt" href="tag/model-training.html">Model training</a></li>
+
+												<li><a class="button button-alt" href="tag/algorithms.html">Algorithms</a></li>
+
+												<li><a class="button button-alt" href="tag/real-estate.html">Real estate</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2018-06-25</div>
+									<h2>Home Price Forecasting - Model Training</h2>
+									<style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Breakdown">The Breakdown<a class="anchor-link" href="#The-Breakdown">¶</a></h3><p>Finally, in part 4 of 4, it's time to build our models! First, we'll load our analytical base table from Part 3. Then, we'll go through the essential modeling steps:</p>
+<ol>
+<li><a href="#split">Split your dataset</a></li>
+<li><a href="#pipelines">Build model pipelines</a></li>
+<li><a href="#hyperparameters">Declare hyperparameters to tune</a></li>
+<li><a href="#fit-tune">Fit and tune models with cross-validation</a></li>
+<li><a href="#evaluate">Evaluate metrics and select winner</a></li>
+</ol>
+<p>Finally, we'll save the best model as a project deliverable!</p>
+<p><br /><hr /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="First,-let's-import-libraries,-recruit-models,-and-load-the-analytical-base-table.">First, let's import libraries, recruit models, and load the analytical base table.<a class="anchor-link" href="#First,-let's-import-libraries,-recruit-models,-and-load-the-analytical-base-table.">¶</a></h3><p>Let's import our libraries and load the dataset. It's good practice to keep all of your library imports at the top of your notebook or program.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Computing libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.float_format'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">'</span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Visualization libraries</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+
+<span class="c1"># Scikit-Learn for Modeling</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="c1"># Import Elastic Net, Ridge Regression, and Lasso Regression, Random Forest and Gradient Boosted Trees models</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">ElasticNet</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span>
+
+<span class="c1"># sklearn modules for model training</span>
+<span class="c1"># includes modules for splitting training and test set, pipeline creation, standardization, cross-validation</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+
+<span class="c1"># Classification metrics for model performance evaluation</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load cleaned dataset from Module 3</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/Users/brandonlewis/Desktop/Elite Data Science/Project 2 Workbook Bundle/analytical_base_table.csv'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1617, 40)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br id="split" /></p>
+<h3 id="1.-Split-your-dataset">1. Split your dataset<a class="anchor-link" href="#1.-Split-your-dataset">¶</a></h3><p>I'll start by splitting the data into separate training and test sets. Splitting into test/train sets helps us to minimize the chances of our models overfitting the data by making sure some data is set aside for testing model performance instead of all the data being used to train the model. For this problem I will separate the dataframe into separate objects for the target variable <code style="color:steelblue">y</code>, and the input features, <code style="color:steelblue">X</code>.</p>
+<p>Once I've created my target variable and feature objects I then use the <code style="color:steelblue">train_test_split()</code> function to split <code style="color:steelblue">X</code> and <code style="color:steelblue">y</code> into training and test sets. I choose to set aside 20% of the observations for the test set, set a <code style="color:steelblue">random_state</code> variabel to ensure replicable results. Most importantly, I pass the argument <code style="color:steelblue">stratify=</code><span style="color:crimson">df.tx_price</span>&lt;/code&gt; to make sure the target variable's classes are balanced in each subset of data so that we have <strong>stratified random sampling</strong>. This ensures that each of my divided subsets are truly random and the performance I get from my cross-validation is truly representative of my entire training data set. At the end I pring the nubmer of observations in each subset to check that the splitting was done correctly. Next, when we train our models, we can fit them on the <code style="color:steelblue">X_train</code> feature values and <code style="color:steelblue">y_train</code> target values.</p>
+<p>Finally, when we're ready to evaluate our models on our test set, we would use the trained models to predict <code style="color:steelblue">X_test</code> and evaluate the predictions against <code style="color:steelblue">y_test</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create separate object for target variable</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">tx_price</span>
+<span class="c1"># Create separate object for input features</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'tx_price'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Split X and y into train and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+
+<span class="c1"># Confirm right number of observations in each subset</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1293 324 1293 324
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br id="pipelines" /></p>
+<h3 id="2.-Build-model-pipelines">2. Build model pipelines<a class="anchor-link" href="#2.-Build-model-pipelines">¶</a></h3><p>Next, let's set up preprocessing pipelines for each of our algorithms. I use the keys below for each algorithm in my dictionary. Each pipeline is standardized first before the algorithm is run. Scaling the data sets so they all have a normal distribution centered around zero prevents any large scaling differences in the data affecting the model performance. Lastly, I set the <code style="color:steelblue">random_state</code> variable for each algorithm to ensure replicable results.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create pipelines dictionary</span>
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'lasso'</span> <span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)),</span>
+    <span class="s1">'ridge'</span> <span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)),</span>
+    <span class="s1">'enet'</span> <span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">ElasticNet</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)),</span>
+    <span class="s1">'rf'</span> <span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">)),</span>
+    <span class="s1">'gb'</span> <span class="p">:</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1234</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's make sure our dictionary has pipelines for each of our algorithms.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check that we have all 5 algorithms, and that they are all pipelines</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pipelines</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso &lt;class 'sklearn.pipeline.Pipeline'&gt;
+ridge &lt;class 'sklearn.pipeline.Pipeline'&gt;
+enet &lt;class 'sklearn.pipeline.Pipeline'&gt;
+rf &lt;class 'sklearn.pipeline.Pipeline'&gt;
+gb &lt;class 'sklearn.pipeline.Pipeline'&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we have our pipelines, we're ready to move on to declaring hyperparameters to tune.</p>
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br id="hyperparameters" /></p>
+<h3 id="3.-Declare-hyperparameters-to-tune">3. Declare hyperparameters to tune<a class="anchor-link" href="#3.-Declare-hyperparameters-to-tune">¶</a></h3><p>Next, let's declare hyperparameters to tune. I start off by listing the tuneable hyperparameters of the logistic pipeline. There are many listed but usually only one or two are needed for tuning to optimize performance. I declare these hyperparameter grids next for each algorithm. Then I create a hyperparameter dictionary which uses the same keys of the pipeline dictionary I created above to store them all. Having both the pipelines and the hyperparameters in dictionary form will make the cross-validation step very straightforward. Finally, I run a loop checking that all the hyperparameters are set up correctly.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List tuneable hyperparameters of our Lasso pipeline</span>
+<span class="n">pipelines</span><span class="p">[</span><span class="s1">'lasso'</span><span class="p">]</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>{'lasso': Lasso(alpha=1.0, copy_X=True, fit_intercept=True, max_iter=1000,
+    normalize=False, positive=False, precompute=False, random_state=1234,
+    selection='cyclic', tol=0.0001, warm_start=False),
+ 'lasso__alpha': 1.0,
+ 'lasso__copy_X': True,
+ 'lasso__fit_intercept': True,
+ 'lasso__max_iter': 1000,
+ 'lasso__normalize': False,
+ 'lasso__positive': False,
+ 'lasso__precompute': False,
+ 'lasso__random_state': 1234,
+ 'lasso__selection': 'cyclic',
+ 'lasso__tol': 0.0001,
+ 'lasso__warm_start': False,
+ 'memory': None,
+ 'standardscaler': StandardScaler(copy=True, with_mean=True, with_std=True),
+ 'standardscaler__copy': True,
+ 'standardscaler__with_mean': True,
+ 'standardscaler__with_std': True,
+ 'steps': [('standardscaler',
+   StandardScaler(copy=True, with_mean=True, with_std=True)),
+  ('lasso', Lasso(alpha=1.0, copy_X=True, fit_intercept=True, max_iter=1000,
+      normalize=False, positive=False, precompute=False, random_state=1234,
+      selection='cyclic', tol=0.0001, warm_start=False))]}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lasso hyperparameters</span>
+<span class="n">lasso_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'lasso__alpha'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="c1"># Ridge hyperparameters</span>
+<span class="n">ridge_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'ridge__alpha'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="c1"># Elastic Net hyperparameters</span>
+<span class="n">enet_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'elasticnet__alpha'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="s1">'elasticnet__l1_ratio'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="c1"># Random forest hyperparameters</span>
+<span class="n">rf_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'randomforestregressor__n_estimators'</span> <span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+    <span class="s1">'randomforestregressor__max_features'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'auto'</span><span class="p">,</span> <span class="s1">'sqrt'</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="c1"># Boosted tree hyperparameters</span>
+<span class="n">gb_hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'gradientboostingregressor__n_estimators'</span> <span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+    <span class="s1">'gradientboostingregressor__learning_rate'</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+    <span class="s1">'gradientboostingregressor__max_depth'</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create hyperparameters dictionary</span>
+<span class="n">hyperparameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'lasso'</span> <span class="p">:</span> <span class="n">lasso_hyperparameters</span><span class="p">,</span>
+    <span class="s1">'ridge'</span> <span class="p">:</span> <span class="n">ridge_hyperparameters</span><span class="p">,</span>
+    <span class="s1">'enet'</span> <span class="p">:</span> <span class="n">enet_hyperparameters</span><span class="p">,</span>
+    <span class="s1">'rf'</span> <span class="p">:</span> <span class="n">rf_hyperparameters</span><span class="p">,</span>
+    <span class="s1">'gb'</span> <span class="p">:</span> <span class="n">gb_hyperparameters</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">hyperparameters</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">hyperparameters</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">hyperparameters</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="s1">'was found in hyperparameters, and it is a grid.'</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="s1">'was found in hyperparameters, but it is not a grid.'</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="s1">'was not found in hyperparameters'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso was found in hyperparameters, and it is a grid.
+ridge was found in hyperparameters, and it is a grid.
+enet was found in hyperparameters, and it is a grid.
+rf was found in hyperparameters, and it is a grid.
+gb was found in hyperparameters, and it is a grid.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br id="fit-tune" /></p>
+<h3 id="4.-Fit-and-tune-models-with-cross-validation">4. Fit and tune models with cross-validation<a class="anchor-link" href="#4.-Fit-and-tune-models-with-cross-validation">¶</a></h3><p>Now that we have our <code style="color:steelblue">pipelines</code> and <code style="color:steelblue">hyperparameters</code> dictionaries declared, we're ready to tune our models with <strong>cross-validation</strong>.</p>
+<p>For this task I start by creating an empty <code style="color:SteelBlue">fitted_models</code> dictionary that will include models that have been tuned using cross-validation. The keys will be the same as those in the <code style="color:SteelBlue">pipelines</code> and <code style="color:SteelBlue">hyperparameters</code> dictionaries. The values will be <code style="color:steelblue">GridSearchCV</code> objects that have been fitted to <code style="color:steelblue">X_train</code> and <code style="color:steelblue">y_train</code>. After fitting each model, I will print <code style="color:crimson">'{name} has been fitted.'</code> just to track the progress. To speed up processing time I set <code style="color:steelblue">n_jobs=<span style="color:crimson">-1</span></code> to use as many cores as available on my computer. I then run a couple of loops to check that all the models have been fitted and that they are of the correct type.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create empty dictionary called fitted_models</span>
+<span class="n">fitted_models</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Loop through model pipelines, tuning each one and saving it to fitted_models</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">pipeline</span> <span class="ow">in</span> <span class="n">pipelines</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># Create cross-validation object from pipeline and hyperparameters</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Fit model on X_train, y_train</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="c1"># Store model in fitted_models[name] </span>
+    <span class="n">fitted_models</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+    
+    <span class="c1"># Print '{name} has been fitted'</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">'has been fitted.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso has been fitted.
+ridge has been fitted.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
+  ConvergenceWarning)
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>enet has been fitted.
+rf has been fitted.
+gb has been fitted.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check that we have 5 cross-validation objects</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">fitted_models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso &lt;class 'sklearn.model_selection._search.GridSearchCV'&gt;
+ridge &lt;class 'sklearn.model_selection._search.GridSearchCV'&gt;
+enet &lt;class 'sklearn.model_selection._search.GridSearchCV'&gt;
+rf &lt;class 'sklearn.model_selection._search.GridSearchCV'&gt;
+gb &lt;class 'sklearn.model_selection._search.GridSearchCV'&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="k">import</span> <span class="n">NotFittedError</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">fitted_models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">'has been fitted.'</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">NotFittedError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso has been fitted.
+ridge has been fitted.
+enet has been fitted.
+rf has been fitted.
+gb has been fitted.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nice. Now we're ready to evaluate how our models performed!</p>
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br id="evaluate" /></p>
+<h3 id="5.-Evaluate-models-and-select-winner">5. Evaluate models and select winner<a class="anchor-link" href="#5.-Evaluate-models-and-select-winner">¶</a></h3><p>Finally, it's time to evaluate our models and pick the best one. Here I create a for loop which calculates the <code style="color:steelblue">best\_score_</code> attribute for each fitted model. As you can see, the ensemble tree algorithms had the best performance with Gradient Boosted Trees model getting the highest score followed by Random Forest, the generic Elastic Net model, and then the two specialized regression models, Ridge and Lasso.</p>
+<p>For comparison sake I'm also going to run a loop to print out the $R^2$ and MAE scores for each model to see how they compare to the <code style="color:steelblue">best\_score_</code> attribute for each fitted model. You can see the ranking stays the same for the $R^2$ error but is altered a bit for the regression models in the MAE score. Either way, we have two models which meet our win condition of MAE &lt; $70,000. The winner is the model with the smallest MAE: Gradient Boosted Trees.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display best_score_ for each fitted model</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">fitted_models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso 0.32542435623175286
+ridge 0.3320098300677493
+enet 0.34968315167630615
+rf 0.5075575924244231
+gb 0.5147041073771785
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop to print performance of eac model in fitted_models on test set</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">fitted_models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'--------'</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'R2:'</span><span class="p">,</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'MAE:'</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>lasso
+--------
+R2: 0.46107992590426183
+MAE: 87896.62808542959
+
+ridge
+--------
+R2: 0.46189804880835483
+MAE: 87901.5060458523
+
+enet
+--------
+R2: 0.4623439428588939
+MAE: 89151.94485944425
+
+rf
+--------
+R2: 0.552966419215394
+MAE: 77619.39941358025
+
+gb
+--------
+R2: 0.5761981918946988
+MAE: 76899.07451628087
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Finally, let's plot the performance of the winning model on the test set. Run the code below.</strong></p>
+<ul>
+<li>It first plots a scatter plot.</li>
+<li>Then, it plots predicted transaction price on the X-axis.</li>
+<li>Finally, it plots actual transaction price on the y-axis.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gb_pred</span> <span class="o">=</span> <span class="n">fitted_models</span><span class="p">[</span><span class="s1">'gb'</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gb_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'predicted'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'actual'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This last visual check is a nice way to confirm our model's performance.</p>
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br /></p>
+<h3 id="Finally,-let's-save-the-winning-model.">Finally, let's save the winning model.<a class="anchor-link" href="#Finally,-let's-save-the-winning-model.">¶</a></h3><p>Great job! You've created a pretty kick-ass model for real-estate valuation. Now it's time to save your hard work.</p>
+<p>First, let's take a look at the data type of your winning model.</p>
+<p><strong><em>Run each code cell below after completing the exercises above.</em></strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we output that object directly, we can also see the winning values for our hyperparameters.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fitted_models</span><span class="p">[</span><span class="s1">'gb'</span><span class="p">]</span><span class="o">.</span><span class="n">best_estimator_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Pipeline(memory=None,
+     steps=[('standardscaler', StandardScaler(copy=True, with_mean=True, with_std=True)), ('gradientboostingregressor', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=3, max_features=None,
+             max_leaf_nodes=None, m...s=100, presort='auto', random_state=1234,
+             subsample=1.0, verbose=0, warm_start=False))])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>See? The winning values for our hyperparameters are:</p>
+<ul>
+<li><code style="color:steelblue">n_estimators: <span style="color:crimson">200</span></code></li>
+<li><code style="color:steelblue">max_features : <span style="color:crimson">'auto'</span></code></li>
+</ul>
+<p>Great, now let's import a helpful package called <code style="color:steelblue">pickle</code>, which saves Python objects to disk.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's save the winning <code style="color:steelblue">Pipeline</code> object into a pickle file.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'final_model.pkl'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">fitted_models</span><span class="p">[</span><span class="s1">'gb'</span><span class="p">]</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a reminder, here are a few things you did in this module:</p>
+<ul>
+<li>Split your dataset into separate training and test sets.</li>
+<li>Set up preprocessing pipelines.</li>
+<li>Tuned the models using cross-validation.</li>
+<li>Evaluated your models, selecting and saving the winner.</li>
+</ul>
+<div style="text-align:center; margin: 40px 0 40px 0;">
+[**Back to Contents**](#toc)
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+								</article>
+ <div id="disqus_thread" class="box"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https://cyranothebard.disqus.com';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
+
+				</div>
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+										<li>
+											<span class="date">Jul <strong>01</strong></span>
+											<h3><a href="EmployeeRetention_projectdelivery.html">Employee Retention - Project Delivery</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Breakdown">The Breakdown<a class="anchor-link" href="#The-Breakdown">¶</a></h3><p>Up to this point I've taken this project from a simple dataset all the way to a high-performing predictive model. Now, I'll show you how I can use this model to predict brand new (<strong>raw</strong>) data and package the work together into an executable script. Here, in part 4 of 4, we'll import libraries and load our model from Part 3.</p></p>
+										</li>
+										<li>
+											<span class="date">Jul <strong>01</strong></span>
+											<h3><a href="EmployeeRetention_modeltraining.html">Employee Retention - Model Training</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Breakdown">The Breakdown<a class="anchor-link" href="#The-Breakdown">¶</a></h3><p>At last, here in part 3 of 4, it's time to build the models! First, I'll load the analytical base table from Part 2. Then, I'll go through the essential modeling steps:</p>
+<ol>
+<li><a href="#split">Split the dataset</a></li>
+<li><a href="#pipelines">Build model pipelines</a></li>
+<li><a href="#hyperparameters">Declare hyperparameters to tune</a></li>
+<li><a href="#fit-tune">Fit and tune models with cross-validation</a></li>
+<li><a href="#evaluate">Evaluation metrics</a></li>
+<li><a href="#auroc">Area under ROC curve</a></li>
+</ol>
+<p>Finally, I'll save the best model to use in the next module. I'll spend a little extra time on the last 2 steps because classification tasks require extra metrics compared to regression tasks.</p></p>
+										</li>
+										<li>
+											<span class="date">Jul <strong>01</strong></span>
+											<h3><a href="EmployeeRetention_datacleaning_featureengineering.html">Employee Retention - Data Cleaning & Feature Engineering</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Breakdown">The Breakdown<a class="anchor-link" href="#The-Breakdown">¶</a></h3><p>In this module, part 2 of 4, we're going to combine the <strong>Data Cleaning</strong> and <strong>Feature Engineering</strong> for this project. This is important because, as a general rule, <strong>better data beats better algorithms</strong>.</p>
+<p>In this module, I'm going to cover the essential steps for building an analytical base table (ABT):</p></p>
+										</li>
+										<li>
+											<span class="date">Jul <strong>01</strong></span>
+											<h3><a href="EmployeeRetention_exploratoryanalysis.html">Employee Retention - Exploratory Analysis</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the first in a series of posts that work through a machine learning problem from beginning to end. This series of posts will be broken down into 4 steps corresponding with my machine learning workflow.</p>
+<ol>
+<li>Exploratory Analysis </li>
+<li>Data Cleaning &amp; Feature Engineering</li>
+<li>Model Training</li>
+<li>Project Delivery </li>
+</ol>
+<p>Before we delve into the Exploratory Analysis I always like to take a minute to summarize the problem description and problem summary to ensure I have a solid high level understanding of the task before deliving into the data.</p></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+									<section>
+										<header>
+											<h2>What's this all about?</h2>
+										</header>
+											<a href="https://github.com/cyranothebard" class="image image-full"><img src="https://cyranothebard.github.io/images/headshot.jpg" alt="" /></a>
+										<p>
+										This is my personal portfolio website where I showcase my data science projects.
+										</p>
+										<footer>
+												<a href="https://github.com/cyranothebard" class="button">Find out more</a>
+										</footer>
+									</section>
+								</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="http://getpelican.com/">Pelican</a></li>
+											<li><a href="http://python.org/">Python.org</a></li>
+											<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="https://cyranothebard.github.io/category/posts.html">posts</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+							
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+											<li class="twitter"><a href="http://twitter.com/cyranothebard" class="icon48 icon48-2">Twitter</a></li>
+										<li class="linkedin"><a href="http://www.linkedin.com/pub/in/lewisbrandonk/" class="icon48 icon48-4">LinkedIn</a></li>
+									</ul>
+									<ul class="contact">
+											<li>
+												<h3>Mail</h3>
+												<p><a href="mailto:lewis.brandonk@gmail.com">lewis.brandonk@gmail.com</a></p>
+											</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
+</html>
