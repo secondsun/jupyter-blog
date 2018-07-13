@@ -7,11 +7,11 @@ from utils import filters
 JINJA_FILTERS = { 'sidebar': filters.sidebar }
 
 AUTHOR = 'Brandon Lewis'
-SITENAME = "Brandon's Data Science Blog"
+SITENAME = "Brandon's Data Science Portfolio Blog"
 SITEURL = ''
 
 # Variables
-PATH = 'content'
+PATH = 'content/Project Files'
 STATIC_PATHS = ['images', 'pdfs']
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
@@ -19,7 +19,7 @@ DEFAULT_LANG = 'en'
 MAIL = 'lewis.brandonk@gmail.com'
 TWITTER_USER = 'cyranothebard'
 LINKEDIN_USER = 'in/lewisbrandonk/'
-ABOUT_TEXT = 'This is my personal website where I showcase my data science work.'
+ABOUT_TEXT = 'This is my personal portfolio website where I showcase my data science projects.'
 ABOUT_IMAGE = 'images/headshot.jpg'
 ABOUT_LINK = 'https://github.com/cyranothebard'
 
