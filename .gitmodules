@@ -1,9 +1,6 @@
 [submodule "plugins/ipynb"]
 	path = plugins/ipynb
 	url = git://github.com/danielfrg/pelican-ipynb.git
-[submodule "Project Files"]
-	path = content/jupyter-projects
-	url = git@github.com:secondsun/jupyter-projects.git
 [submodule "content/Project Files"]
 	path = content/Project Files
 	url = git@github.com:secondsun/jupyter-projects.git
